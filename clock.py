@@ -1,11 +1,12 @@
 from apscheduler.schedulers.blocking import BlockingScheduler
-import subprocess
+from places import api_call
 
 sched = BlockingScheduler()
 
-@sched.scheduled_job('cron', day_of_week='*', hour='9-21/3')
+#@sched.scheduled_job('cron', day_of_week='*', hour='9-21/1', misfire_grace_time=1000)
+@sched.scheduled_job('cron', day_of_week='*', hour='9-23/1', misfire_grace_time=1000)
 def timed_job():
     print('This job is run everyday every 3 hours from 6-21h')
-    subprocess.call('python places.py', shell=True, close_fds=True)
+    api_call()
 
 sched.start()
