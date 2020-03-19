@@ -35,23 +35,23 @@ Base.metadata.create_all(engine)
 with open("api_keys.txt") as f:
     api_keys = cycle([key.strip() for key in f.readlines()])
 
+#populartimes.get_id(next(api_keys), "ChIJdRuke6ZXn0cRUxrxk9-6NFg")
 #Iterate over Places
 def api_call():
     place_ids = [
     "ChIJuVGxxf51nkcRwhxFwvIr7EM",
     "ChIJ4dic-71RqEcRZIsmE3K6r-0",
-    "ChIJbygR2x5OqEcRbhbkZsMB_DA",
-    "ChIJlV6Fa6lXn0cRF5H8Ao4fulc",
-    "ChIJ15F6CaZXn0cRtQaLlNmsiWM",
+    "ChIJ25xRQB9OqEcRiDCQLqrmcbA",
+    "ChIJe9nAXKZXn0cRGUlOPBMiDIo",
     "ChIJmZ8cBbbCuEcRecCyfQofums",
-    "ChIJ1fnqoDPbmUcRVQ4om02OW1M",
+    "ChIJX34c7jLbmUcRhaEUxVf0H3w",
     "ChIJraB7riH4pkcRGXSvqsL52lM",
     "ChIJ4___HmbPCUcRN5Ub3P2ZfmQ",
-    "ChIJ6wts3uMZuUcRIiL5TtT-PAo",
-    "ChIJ-bKRN_4LvUcRrK86lzLJZkM"]
+    "ChIJcaYkt1gXuUcRPhoGAkKO10k",
+    "ChIJDSw1eVUJvUcRWndDicZ7OLo"]
     session = Session()
     for x, place_id in enumerate(place_ids):
-        print(x)
+        #print(x)
         time.sleep(80)
         try:
             key = next(api_keys)
@@ -60,6 +60,7 @@ def api_call():
             print(e)
             print("Error with key: " + key)
             continue
+        print(data["name"])
         if "current_popularity" in data:
             entry = Entry(
                 data["name"],
@@ -75,4 +76,4 @@ def api_call():
     print("There are now " + str(session.query(Entry).count()) + " Entries in the Database")
     session.close()
 
-api_call()
+#api_call()
