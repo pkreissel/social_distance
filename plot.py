@@ -11,8 +11,6 @@ def get_data():
     else:
         with open("database.txt") as f:
             engine = create_engine(f.readline())
-    Session = sessionmaker(bind=engine)
-    session = Session()
 
     entries = pd.read_sql_table("entries", con=engine)
     entries.drop_duplicates(["place_id", "place_name"])[["place_id", "place_name"]].to_csv("places.csv", index = False)

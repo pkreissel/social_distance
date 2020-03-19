@@ -2,3 +2,4 @@ api_keys.txt
 database.txt
 plot.png
 places.csv
+__pycache__/
