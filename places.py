@@ -10,10 +10,10 @@ import os
 
 #Configure Database
 if "DATABASE_URL" in os.environ:
-        engine = create_engine(os.environ["DATABASE_URL"])
+        engine = create_engine(os.environ["DATABASE_URL"], max_overflow = -1)
 else:
     with open("database.txt") as f:
-        engine = create_engine(f.readline())
+        engine = create_engine(f.readline(), max_overflow = -1)
 Session = sessionmaker(bind=engine)
 Base = declarative_base()
 
@@ -56,7 +56,7 @@ def api_call():
     ]
     session = Session()
     for x, place_id in enumerate(place_ids):
-        #print(x)
+        print(data["name"])
         time.sleep(80)
         try:
             key = next(api_keys)
@@ -65,7 +65,7 @@ def api_call():
             print(e)
             print("Error with key: " + key)
             continue
-        print(data["name"])
+
         if "current_popularity" in data:
             entry = Entry(
                 data["name"],

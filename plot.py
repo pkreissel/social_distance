@@ -13,8 +13,8 @@ def get_data():
             engine = create_engine(f.readline())
 
     entries = pd.read_sql_table("entries", con=engine)
+    engine.dispose()
     entries.drop_duplicates(["place_id", "place_name"])[["place_id", "place_name"]].to_csv("places.csv", index = False)
-
     entries["place_relative"] = entries["place_current_popularity"] / entries["place_normal"]
     #entries = entries.set_index("created_on")
     data_today = entries.loc[entries["created_on"].dt.floor("d") == pd.Timestamp.today().floor("d")].groupby("place_name")["place_relative"].mean() * 100
