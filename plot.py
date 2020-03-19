@@ -22,4 +22,5 @@ def get_data():
     data_today = entries.loc[entries["created_on"].dt.floor("d") == pd.Timestamp.today().floor("d")].groupby("place_name")["place_relative"].mean()
     data_yesterday = entries.loc[entries["created_on"].dt.floor("d") == pd.Timestamp.today().floor("d") - pd.Timedelta('1 days')].groupby("place_name")["place_relative"].mean()
     result = pd.DataFrame(data_yesterday).merge(data_today, how = "outer", on = "place_name", suffixes = ["_yesterday", "_today"])
+    result["Trend"] = 1 - data_today / data_yesterday
     return result
