@@ -34,14 +34,13 @@ class Entry(Base):
         self.place_current_popularity = place_current_popularity
 Base.metadata.create_all(engine)
 
-
-#Enable Key Cycling
-with open("api_keys.txt") as f:
-    api_keys = cycle([key.strip() for key in f.readlines()])
-
 #populartimes.get_id(next(api_keys), "ChIJdRuke6ZXn0cRUxrxk9-6NFg")
 #Iterate over Places
 def api_call():
+    #Enable Key Cycling
+    with open("api_keys.txt") as f:
+        api_keys = cycle([key.strip() for key in f.readlines()])
+
     place_ids = [
     "ChIJuVGxxf51nkcRwhxFwvIr7EM",
     "ChIJ4dic-71RqEcRZIsmE3K6r-0",
