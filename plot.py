@@ -1,9 +1,9 @@
 from sqlalchemy.orm import sessionmaker
-from .places import Entry
 from sqlalchemy import create_engine
 import pandas as pd
 from datetime import datetime
 import os
+from places import Entry
 
 def get_data():
     if "DATABASE_URL" in os.environ:

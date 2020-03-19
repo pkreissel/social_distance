@@ -1,5 +1,5 @@
 from apscheduler.schedulers.blocking import BlockingScheduler
-from .places import api_call
+from places import api_call
 
 sched = BlockingScheduler()
 

@@ -11,9 +11,9 @@ import os
 #Configure Database
 if "DATABASE_URL" in os.environ:
         engine = create_engine(os.environ["DATABASE_URL"])
-    else:
-        with open("database.txt") as f:
-            engine = create_engine(f.readline()
+else:
+    with open("database.txt") as f:
+        engine = create_engine(f.readline())
 Session = sessionmaker(bind=engine)
 Base = declarative_base()
 

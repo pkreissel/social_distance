@@ -1,6 +1,6 @@
 from flask import Flask, render_template, send_file, make_response
 import pandas as pd
-from .plot import get_data
+from plot import get_data
 
 app = Flask(__name__)
 

@@ -1,7 +1,6 @@
-itertools
 sqlalchemy
 apscheduler
-subprocess
+psycopg2
 Flask
 gunicorn
 pandas
