@@ -37,11 +37,22 @@ with open("api_keys.txt") as f:
 
 #Iterate over Places
 def api_call():
-    place_ids = ["ChIJuVGxxf51nkcRwhxFwvIr7EM", "ChIJ4dic-71RqEcRZIsmE3K6r-0", "ChIJmY9JK6Ulv0cRkNik00YUhZU", "ChIJ4aTfAYhXn0cRPJda3ksNq_0", "ChIJNTqGKTLbmUcRgQqjvTsO3wA", "ChIJI_Q3R-GOsUcRzz79A3qPxlw", "ChIJlSNuYVUJvUcRZmX1t81kEGU", "ChIJicfwQcrCuEcRBScpoj9SRJg", " ChIJm14qVOQZuUcR4XB5FsEB4zc", "ChIJ8bSeYiL4pkcRDYsuVPgKgps", " ChIJYRu0lIrFCUcRdTswsKeDvvs"]
+    place_ids = [
+    "ChIJuVGxxf51nkcRwhxFwvIr7EM",
+    "ChIJ4dic-71RqEcRZIsmE3K6r-0",
+    "ChIJbygR2x5OqEcRbhbkZsMB_DA",
+    "ChIJlV6Fa6lXn0cRF5H8Ao4fulc",
+    "ChIJ15F6CaZXn0cRtQaLlNmsiWM",
+    "ChIJmZ8cBbbCuEcRecCyfQofums",
+    "ChIJ1fnqoDPbmUcRVQ4om02OW1M",
+    "ChIJraB7riH4pkcRGXSvqsL52lM",
+    "ChIJ4___HmbPCUcRN5Ub3P2ZfmQ",
+    "ChIJ6wts3uMZuUcRIiL5TtT-PAo",
+    "ChIJ-bKRN_4LvUcRrK86lzLJZkM"]
     session = Session()
     for x, place_id in enumerate(place_ids):
         print(x)
-        time.sleep(65)
+        time.sleep(80)
         try:
             key = next(api_keys)
             data = populartimes.get_id(key, place_id)
