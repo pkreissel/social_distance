@@ -42,6 +42,8 @@ def api_call():
         api_keys = cycle([key.strip() for key in f.readlines()])
 
     place_ids = [
+    "ChIJext9rehXn0cRUISYYjjnrnE",
+    "ChIJucV_4wyPsUcRli4AiPCHq2I",
     "ChIJuVGxxf51nkcRwhxFwvIr7EM",
     "ChIJ4dic-71RqEcRZIsmE3K6r-0",
     "ChIJ25xRQB9OqEcRiDCQLqrmcbA",
@@ -50,8 +52,8 @@ def api_call():
     "ChIJX34c7jLbmUcRhaEUxVf0H3w",
     "ChIJraB7riH4pkcRGXSvqsL52lM",
     "ChIJ4___HmbPCUcRN5Ub3P2ZfmQ",
-    "ChIJcaYkt1gXuUcRPhoGAkKO10k",
-    "ChIJDSw1eVUJvUcRWndDicZ7OLo"]
+    "ChIJcaYkt1gXuUcRPhoGAkKO10k"
+    ]
     session = Session()
     for x, place_id in enumerate(place_ids):
         #print(x)
@@ -78,5 +80,3 @@ def api_call():
     #Lets us know how many Calls we have made so far.
     print("There are now " + str(session.query(Entry).count()) + " Entries in the Database")
     session.close()
-
-#api_call()
