@@ -3,10 +3,14 @@ from .places import Entry
 from sqlalchemy import create_engine
 import pandas as pd
 from datetime import datetime
+import os
 
 def get_data():
-    with open("database.txt") as f:
-        engine = create_engine(f.readline())
+    if "DATABASE_URL" in os.environ:
+        engine = create_engine(os.environ["DATABASE_URL"])
+    else:
+        with open("database.txt") as f:
+            engine = create_engine(f.readline())
     Session = sessionmaker(bind=engine)
     session = Session()
 

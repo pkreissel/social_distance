@@ -5,11 +5,15 @@ from sqlalchemy import create_engine, Column, Integer, DateTime, String
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 import time
+import os
 
 
 #Configure Database
-with open("database.txt") as f:
-    engine = create_engine(f.readline())
+if "DATABASE_URL" in os.environ:
+        engine = create_engine(os.environ["DATABASE_URL"])
+    else:
+        with open("database.txt") as f:
+            engine = create_engine(f.readline()
 Session = sessionmaker(bind=engine)
 Base = declarative_base()
 
