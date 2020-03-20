@@ -42,21 +42,22 @@ def api_call():
         api_keys = cycle([key.strip() for key in f.readlines()])
 
     place_ids = [
-    "ChIJext9rehXn0cRUISYYjjnrnE",
-    "ChIJucV_4wyPsUcRli4AiPCHq2I",
     "ChIJuVGxxf51nkcRwhxFwvIr7EM",
     "ChIJ4dic-71RqEcRZIsmE3K6r-0",
-    "ChIJ25xRQB9OqEcRiDCQLqrmcbA",
-    "ChIJe9nAXKZXn0cRGUlOPBMiDIo",
+    "ChIJmY9JK6Ulv0cRkNik00YUhZU",
     "ChIJmZ8cBbbCuEcRecCyfQofums",
+    "ChIJ4___HmbPCUcRN5Ub3P2ZfmQ",
+    "ChIJ25xRQB9OqEcRiDCQLqrmcbA",
     "ChIJX34c7jLbmUcRhaEUxVf0H3w",
     "ChIJraB7riH4pkcRGXSvqsL52lM",
-    "ChIJ4___HmbPCUcRN5Ub3P2ZfmQ",
-    "ChIJcaYkt1gXuUcRPhoGAkKO10k"
+    "ChIJcaYkt1gXuUcRPhoGAkKO10k",
+    "ChIJe9nAXKZXn0cRGUlOPBMiDIo",
+    "ChIJDSw1eVUJvUcRWndDicZ7OLo",
+    "ChIJext9rehXn0cRUISYYjjnrnE"
     ]
     session = Session()
     for x, place_id in enumerate(place_ids):
-        print(data["name"])
+
         time.sleep(80)
         try:
             key = next(api_keys)
@@ -65,7 +66,7 @@ def api_call():
             print(e)
             print("Error with key: " + key)
             continue
-
+        print(data["name"])
         if "current_popularity" in data:
             entry = Entry(
                 data["name"],
