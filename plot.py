@@ -24,5 +24,5 @@ def get_data():
         "place_relative_yesterday": result["place_relative_yesterday"].mean(),
         "place_relative_today": result["place_relative_today"].mean(),
         "Trend": (result["place_relative_today"].mean() - result["place_relative_yesterday"].mean())/result["place_relative_yesterday"].mean()*100
-    }, name = "Deutschland Insgesamt"))
+    }, name = "Deutschland Durchschnitt"))
     return result
