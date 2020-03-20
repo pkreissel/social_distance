@@ -20,4 +20,9 @@ def get_data():
     data_yesterday = entries.loc[entries["created_on"].dt.floor("d") == pd.Timestamp.today().floor("d") - pd.Timedelta('1 days')].groupby("place_name")["place_relative"].mean() * 100
     result = pd.DataFrame(data_yesterday).merge(data_today, how = "outer", on = "place_name", suffixes = ["_yesterday", "_today"])
     result["Trend"] = (data_today-data_yesterday) / data_yesterday * 100
+    result = result.append(pd.Series({
+        "place_relative_yesterday": result["place_relative_yesterday"].mean(),
+        "place_relative_today": result["place_relative_today"].mean(),
+        "Trend": (result["place_relative_today"].mean() - result["place_relative_yesterday"].mean())/result["place_relative_yesterday"].mean()*100
+    }, name = "Insgesamt"))
     return result
