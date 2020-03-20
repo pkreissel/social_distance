@@ -6,14 +6,34 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   </head>
   <body>
-    <h1>Social Distancing Dashboard</h1>
     <div class="container" style="max-width:1000px; margin-top:30px">
       <div class="row">
-        <div class="col-md-8">
+          <h1>Social Distancing Dashboard</h1>
+          <p>
+            Auf dieser Seite veröffentliche ich Datenanalysen und Charts zu den Folgen und der Umsetzung von Social Distancing in Deutschland.
+          </p>
+          <p>
+            Der Code ist auf <a href="https://github.com/pkreissel/social_distance">Github</a>, Weiterentwicklung und Nutzung der Grafiken (mit Namensnennung) ist ausdrücklich erwünscht.
+          </p>
+      </div>
+      <hr width = "50%">
+      <div class="row">
+        <h2>Google Places - Social Distancing Trends in deutschen Städten.</h2>
+          <p>
+            Google Maps zeigt für manche Orte die relative Auslastung an. Damit lässt sich abschätzen, wie gut freiwillige Maßnahmen zum Social Distancing eingehalten werden. Der angezeigte Wert der Auslastung gibt in Prozent an, wie wie Leute sich am Tag bisher dort aufgehalten verglichen mit normalen Tagen. 100% wäre also ein durchschnittlicher Tag.
+          </p>
+          <p>
+            Diese Auslastung wird anhand von aggregierten Daten von Android Nutzern berechnet. Um zu verhindern, dass deine Standort-Daten von Google ausgewertet werden, musst du hier am besten alle Haken rausnehmen: https://myaccount.google.com/activitycontrols?pli=1
+          </p>
+          <p>
+            Es ist unklar, ob sich die Daten wirklich für einen Vergleich zwischen Städten eignen, weil es schwer ist repräsentative und vergleichbare Orte zu finden. Daher ist es sinnvoll vor allem auf den Gesamt-Trend zu achten.
+          </p>
+      </div>
+      <div class="row">
           <iframe title="Auslastung von Orten - Social Distancing" aria-label="Split Bars" id="datawrapper-chart-PdKpB" src="//datawrapper.dwcdn.net/PdKpB/5/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="539"></iframe>
           <script type="text/javascript">!function(){"use strict";window.addEventListener("message",function(a){if(void 0!==a.data["datawrapper-height"])for(var e in a.data["datawrapper-height"]){var t=document.getElementById("datawrapper-chart-"+e)||document.querySelector("iframe[src*='"+e+"']");t&&(t.style.height=a.data["datawrapper-height"][e]+"px")}})}();</script>
-        </div>
       </div>
+      <hr width = "50%">
     </div>
   </body>
 </html>
